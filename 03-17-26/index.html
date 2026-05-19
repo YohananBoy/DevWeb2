@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <script src="js.js" defer></script>
+    <style>
+        fieldset {
+            width: min-content;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: min-content;
+        }
+        section{
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+        div{
+            padding: 5px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            box-shadow: 10px 10px #0003;
+        }
+        #spanErro {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora top de IMC</h1>
+    <section>
+        <div>
+            <span id="spanErro"></span>
+            <fieldset>
+                <legend>Nome:</legend>
+                <input type="text" name="inputNome" id="inputNome">
+            </fieldset>
+            <fieldset>
+                <legend>Peso(kg):</legend>
+                <input type="number" name="inputPeso" id="inputPeso" step="0.1">
+            </fieldset>
+            <fieldset>
+                <legend>Altura(m):</legend>
+                <input type="number" name="inputAltura" id="inputAltura" step="0.01">
+            </fieldset>
+            <button>Calcular</button>
+        </div>
+        <div>
+            <h3>Resultados</h3>
+            <p id="pNome"></p>
+            <p id="pImc"></p>
+            <p id="pClassificacao"></p>
+        </div>
+    </section>
+</body>
+</html>
