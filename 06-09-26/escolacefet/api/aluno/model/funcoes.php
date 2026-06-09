@@ -34,4 +34,9 @@ function validar(array $aluno): void
         responderJSON(["erro" => "As notas precisam estar entre 0 e 10"], 400);
 }
 
-function validar()
+function validarId(string $id): int
+{
+    if (!isset($id) || (!(is_numeric($id) || ((int) $id > 0))))
+        responderJSON(["erro" => "Precisa haver um id maior do que zero"], 400);
+    return (int) $id;
+}
