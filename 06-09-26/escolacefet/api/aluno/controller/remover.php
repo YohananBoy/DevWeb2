@@ -1,17 +1,15 @@
 <?php
-
 declare(strict_types=1);
-require_once '../../util/funcoesUtil.php';
+require_once '../model/funcoes.php';
+require_once '../model/funcoesBD.php';
+require_once '../../util/funcoes.php';
 
 $id = (int) $_GET['id'];
 
-$pdo = getPDO();
 
 try {
-    $sql = "DELETE FROM aluno WHERE id = :ID";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':ID', $id, PDO::PARAM_INT);
-    $stmt->execute();
+    /**@var callable $remover */
+    $remover($id);
 } catch (PDOException $e) {
     responderJSON(["erro" => "Erro ao remover aluno {$e->getMessage()}"], 400);
 }
